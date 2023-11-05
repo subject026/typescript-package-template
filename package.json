@@ -1,10 +1,16 @@
 {
-  "name": "zod-message-bus",
-  "version": "1.0.0",
+  "name": "typescript-package-template",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts"
+    "lint": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "pnpm build --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ci": "pnpm lint && pnpm test && pnpm build",
+    "release": "pnpm lint && pnpm test && pnpm build && changeset publish"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +19,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "tsup": "^7.2.0"
+    "@changesets/cli": "^2.26.2",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }
